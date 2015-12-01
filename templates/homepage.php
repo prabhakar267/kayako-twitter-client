@@ -11,7 +11,7 @@
 	
 	<title>Simple Twitter API Client | By Prabhakar Gupta</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/theme.css">
+	<link rel="stylesheet" href="css/style.css">
 	
 	<link rel="shortcut icon" href="http://freelikes4you.com/img/icons2/twitter.png">
 	

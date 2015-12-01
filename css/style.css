@@ -5,6 +5,8 @@ body {
 	padding-top:20px;
 	padding-bottom: 0px;
 	font-family: 'Roboto', sans-serif;
+
+	/*copied from twitter main website*/
 	background-image: url(https://abs.twimg.com/images/themes/theme1/bg.png);
 	background-attachment: fixed;
 	background-repeat: repeat;

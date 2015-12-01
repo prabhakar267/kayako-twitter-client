@@ -1,15 +1,12 @@
 <?php
 
-	// include Twitter Oauth Library
+	// include Open Source Twitter OAuth Library
 	require_once 'inc/lib/twitteroauth.php';
 	
-	// include config files
 	require_once 'inc/config.inc.php';
+	require_once 'models/SearchHastags.php';
 
-	// include all models
-	require_once 'models/HashtagSearchModel.php';
 
-	// include Slim
 	require 'Slim/Slim.php';
 	\Slim\Slim::registerAutoloader();
 
@@ -22,22 +19,24 @@
 	));
 	$app->config('debug', true);
 
-	/** Routes */
+
+	// Routes
 	$app->map('/', 'renderView')
 		->via('GET');
 
-	$app->map('/fetch-tweets', 'showCustservTweets')
+	$app->map('/fetch-tweets', 'returnTwitterResponse')
 		->via('GET');
 
 	$app->run();
 
 
 	/**
-	 * showCustservTweets() - function catering to route '/'
-	 * 
-	 * @return renders template `show-tweets.php` with the fetched tweets
+	 * returnTwitterResponse() - function to fetch tweets for the api having all the tweets
+	 * 				 - and shows a JSON array 
+	 * @param none
+	 * @return none
 	 */
-	function showCustservTweets(){
+	function returnTwitterResponse(){
 		global $app;
 
 		//final response array to be printed
@@ -47,13 +46,13 @@
 		);
 
 		// instantiate new hashtagsearch with the given hashtag
-		$hashtag_search = new HashtagSearchModel(HASHTAG);
+		$searched_hashtag = new SearchHastags(HASHTAG);
 
-		if(!($hashtag_search->getErrorStatus())){
+		if(!($searched_hashtag->returnError())){
 			$response['error'] = false;
 
 			// get object of matched tweets
-			$all_tweets = $hashtag_search->getTweets();
+			$all_tweets = $searched_hashtag->returnTwitterResponse();
 			$all_tweets = json_decode(strip_tags(json_encode($all_tweets)), true);
 
 			foreach($all_tweets['statuses'] as $tweet){
@@ -75,20 +74,23 @@
 					array_push($response['tweets'], $tweet_to_be_added);
 				}
 			}
-
 		}
-
 		echo json_encode($response);
-
 	}
 
+
+	/**
+	 * renderView() - function to fetch tweets for the api having all the tweets
+	 * 				 - and shows a JSON array 
+	 * @param - none
+	 * @return - Renders the display for '/' route
+	 */
 	function renderView(){
 		global $app;
-			// render the view and send the matched tweets object
+		// render the view and send the matched tweets object
 		$app->render (
-			'show-tweets.php',
+			'homepage.php',
 			array(),
 			200
 		);
 	}
-
