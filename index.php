@@ -1,10 +1,10 @@
 <?php
 
 	// include Twitter Oauth Library
-	require_once 'includes/library/twitteroauth.php';
+	require_once 'inc/lib/twitteroauth.php';
 	
 	// include config files
-	require_once 'includes/twitter-config.php';
+	require_once 'inc/config.inc.php';
 
 	// include all models
 	require_once 'models/HashtagSearchModel.php';
