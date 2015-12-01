@@ -68,7 +68,7 @@
 							'handle'	=> $tweet['user']['screen_name'],
 							'image_pr'	=> $tweet['user']['profile_image_url_https'],
 						),
-						'time'				=> strtotime($tweet['created_at']),
+						'time'				=> returnFormattedDate(strtotime($tweet['created_at'])),
 						'tweet_url'			=> 'https://twitter.com/' . $tweet['user']['screen_name'] . '/status/' . $tweet['id'],
 					);
 					array_push($response['tweets'], $tweet_to_be_added);
@@ -93,4 +93,13 @@
 			array(),
 			200
 		);
+	}
+
+	/**
+	 * returnFormattedDate() - function to return date in desired format 
+	 * @param - $timestamp, php timestamp to be changed
+	 * @return - string, date in desired format
+	 */
+	function returnFormattedDate($timestamp){
+		return date("l, h:i:s A - jS M'y", $timestamp);
 	}
