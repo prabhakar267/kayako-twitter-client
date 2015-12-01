@@ -23,6 +23,9 @@
 	$app->config('debug', true);
 
 	/** Routes */
+	$app->map('/', 'renderView')
+		->via('GET');
+
 	$app->map('/fetch-tweets', 'showCustservTweets')
 		->via('GET');
 
@@ -64,11 +67,10 @@
 						'user'				=> array(
 							'name'		=> $tweet['user']['name'],
 							'handle'	=> $tweet['user']['screen_name'],
-							'profile'	=> $tweet['user']['profile_image_url_https'],
+							'image_pr'	=> $tweet['user']['profile_image_url_https'],
 						),
 						'time'				=> strtotime($tweet['created_at']),
 						'tweet_url'			=> 'https://twitter.com/' . $tweet['user']['screen_name'] . '/status/' . $tweet['id'],
-						'truncated'			=> $tweet['truncated'],
 					);
 					array_push($response['tweets'], $tweet_to_be_added);
 				}
@@ -81,6 +83,12 @@
 	}
 
 	function renderView(){
-
+		global $app;
+			// render the view and send the matched tweets object
+		$app->render (
+			'show-tweets.php',
+			array(),
+			200
+		);
 	}
 

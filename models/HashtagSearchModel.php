@@ -26,7 +26,7 @@ class HashtagSearchModel {
 			$api_url = BASE_URL . $next_results;
 		} else {
 			// form the search endpoint with required parameters
-			$api_url = BASE_URL . '?q=' . urlencode( '#' . $hashtag ) . '&include_entities=false&result_type=recent&count=100';
+			$api_url = BASE_URL . '?q=' . urlencode( '#' . $hashtag ) . '&include_entities=false&result_type=recent&count=200';
 		}
 
 		// making API call on search endpoint along with the given hashtag
