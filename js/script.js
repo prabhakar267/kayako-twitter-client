@@ -50,7 +50,7 @@ function showTweets(){
         },
         beforeSend : function(){
         	//display Loading information
-            targ.html('<p class="error-message">Fetching results, please wait...</p>');
+            targ.html('<img src="http://dkclasses.com/images/loading.gif" class="loader-gif">');
         }
     });
 }

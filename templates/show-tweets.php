@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Twitter Custom Client</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<meta name="description" content="A simple Twitter API client that fetches and displays tweets that have been retweeted at least once and contain the hashtag `#custserv`">
-	<meta name="keywords" content="Twitter, Twitter API, Twitter Client, Custom Client, Custom PHP client, PHP, JS, PHP client, PHP Twitter Client">
-	<meta name="author" content="Sahil Dua">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/> -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Prabhakar Gupta">
+	
+	<title>Simple Twitter API Client | By Prabhakar Gupta</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/theme.css">
 	
-	<!-- Favicon -->
-	<!-- <link rel="shortcut icon" href="http://sahildua.com/twitter-instant/img/icon128.png"> -->
+	<link rel="shortcut icon" href="http://freelikes4you.com/img/icons2/twitter.png">
 	
 </head>
 
-<body class="container">
-	<div class="visibile-lg" style="margin: 5% 0;"></div>
+<body>
 	<div class="container text-center">
-		<h2 style="font-family: 'Arvo', serif;">safsdf</h2>
-		<p>Showing recent tweets for #custserv with atleast one retweet</p>
+		<h3 style="font-family: 'Arvo', serif;">
+			A <u>Simple Twitter API client</u> built for Kayako in PHP to fetch and display Tweets<br>that have been re-tweeted at least once and contain the hashtag <strong>#custserv</strong>
+			<br>
+			-by <a href="http://www.prabhakargupta.com"><strong>Prabhakar Gupta</strong></a>
+		</h3>
+		<hr>
+		
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-10 col-md-offset-1">
 				<div id="tweets_displayed"></div>
 			</div>
 		</div>
+		<hr>
 	</div>
-	<hr>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/script.js"></script>
